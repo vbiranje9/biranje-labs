@@ -1778,6 +1778,10 @@ body.motion-ready .hero-reveal.is-visible {
   color: var(--text);
 }
 
+.award-card[aria-disabled="true"] {
+  cursor: default;
+}
+
 .award-media {
   position: relative;
   display: block;

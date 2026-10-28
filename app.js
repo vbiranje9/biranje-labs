@@ -34,8 +34,19 @@
   document.querySelectorAll('[data-media-shell]').forEach((mediaShell) => {
     const image = mediaShell.querySelector('img');
 
-    if (!image) {
+    if (!image || mediaShell.dataset.mediaEnabled !== 'true') {
       return;
+    }
+
+    image.src = image.dataset.src;
+
+    if (mediaShell.dataset.href) {
+      mediaShell.href = mediaShell.dataset.href;
+      mediaShell.target = '_blank';
+      mediaShell.rel = 'noreferrer';
+      mediaShell.removeAttribute('aria-disabled');
+      mediaShell.removeAttribute('tabindex');
+      mediaShell.querySelector('.award-action').innerHTML = 'View award <i aria-hidden="true">&#8599;</i>';
     }
 
     const setImageState = () => {

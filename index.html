@@ -64,12 +64,12 @@
             </div>
           </div>
         </div>
-        <div class="hero-portrait hero-reveal portrait-media" data-media-shell aria-label="Portrait of Vishal Biranje">
+        <div class="hero-portrait hero-reveal portrait-media" data-media-shell data-media-enabled="false" aria-label="Portrait of Vishal Biranje">
           <div class="portrait-aura" aria-hidden="true"></div>
           <div class="portrait-orbit orbit-one"></div>
           <div class="portrait-orbit orbit-two"></div>
           <div class="portrait-core">
-            <img class="portrait-image" src="assets/vishal-biranje-portrait.png" alt="Vishal Biranje, Senior Java Software Engineer and Manager" decoding="async" fetchpriority="high" />
+            <img class="portrait-image" data-src="assets/vishal-biranje-portrait.png" alt="Vishal Biranje, Senior Java Software Engineer and Manager" decoding="async" fetchpriority="high" />
             <span class="portrait-fallback" aria-hidden="true">VB</span>
             <small>JAVA / AI / CLOUD</small>
             <i class="portrait-scan" aria-hidden="true"></i>
@@ -135,14 +135,14 @@
               <ul class="tag-list" aria-label="BMW technologies"><li>Java</li><li>Team leadership</li><li>ALM</li><li>Codebeamer</li><li>Agile Scrum</li><li>ISO 26262</li></ul>
             </div>
             <button class="timeline-toggle magnetic" type="button" aria-label="Show BMW highlights" aria-expanded="false"><span></span></button>
-            <div class="timeline-detail bmw-detail" hidden>
+            <div class="timeline-detail bmw-detail" id="bmw-award" hidden>
               <div class="bmw-detail-copy">
                 <p>Received the Exemplary Performer Award at BMW TechWorks India for exceptional dedication and expertise.</p>
                 <p>Selected to represent BMW India in Munich, Germany, helping bring new Java project opportunities from Munich to the India delivery team.</p>
               </div>
-              <a class="award-card magnetic" data-media-shell href="assets/bmw-exemplary-performer-award.png" target="_blank" rel="noreferrer" aria-label="View Vishal Biranje's BMW TechWorks India Exemplary Performer Award">
+              <a class="award-card magnetic" data-media-shell data-media-enabled="false" data-href="assets/bmw-exemplary-performer-award.png" href="#bmw-award" aria-disabled="true" tabindex="-1" aria-label="Vishal Biranje's BMW TechWorks India Exemplary Performer Award">
                 <span class="award-media">
-                  <img class="award-image" src="assets/bmw-exemplary-performer-award.png" alt="BMW TechWorks India Certificate of Exemplary Performer Award for Vishal Biranje, Quarter 3 FY 25-26" loading="lazy" decoding="async" />
+                  <img class="award-image" data-src="assets/bmw-exemplary-performer-award.png" alt="BMW TechWorks India Certificate of Exemplary Performer Award for Vishal Biranje, Quarter 3 FY 25-26" loading="lazy" decoding="async" />
                   <span class="award-fallback" aria-hidden="true">
                     <span class="award-brand">BMW TECHWORKS INDIA</span>
                     <strong>EXEMPLARY<br />PERFORMER</strong>
@@ -150,7 +150,7 @@
                   </span>
                   <i class="award-scan" aria-hidden="true"></i>
                 </span>
-                <span class="award-caption"><span>Certificate of recognition</span><b>View award <i aria-hidden="true">&#8599;</i></b></span>
+                <span class="award-caption"><span>Certificate of recognition</span><b class="award-action">Recognition highlight</b></span>
               </a>
             </div>
           </article>
