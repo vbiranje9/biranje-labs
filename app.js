@@ -31,6 +31,22 @@
     link.addEventListener('click', () => setMenuState(false));
   });
 
+  document.querySelectorAll('[data-media-shell]').forEach((mediaShell) => {
+    const image = mediaShell.querySelector('img');
+
+    if (!image) {
+      return;
+    }
+
+    const setImageState = () => {
+      mediaShell.classList.toggle('has-image', image.complete && image.naturalWidth > 0);
+    };
+
+    image.addEventListener('load', setImageState);
+    image.addEventListener('error', setImageState);
+    setImageState();
+  });
+
   if (!reducedMotion) {
     body.classList.add('motion-ready');
 

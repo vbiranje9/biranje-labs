@@ -1667,3 +1667,266 @@ body.motion-ready .hero-reveal.is-visible {
   .chip-side { left: -45px; }
   .scroll-cue { bottom: 47px; }
 }
+
+/* Portrait and recognition media treatment. */
+.portrait-aura {
+  position: absolute;
+  inset: -12%;
+  border: 1px solid rgba(201, 252, 103, 0.1);
+  border-radius: 42% 58% 64% 36% / 46% 41% 59% 54%;
+  box-shadow: inset 0 0 70px rgba(201, 252, 103, 0.04), 0 0 80px rgba(201, 252, 103, 0.055);
+  animation: aura-morph 14s ease-in-out infinite;
+}
+
+.portrait-core {
+  overflow: hidden;
+}
+
+.portrait-core::before,
+.portrait-core::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.portrait-core::before {
+  background: linear-gradient(122deg, rgba(201, 252, 103, 0.24), transparent 28%, transparent 64%, rgba(9, 10, 10, 0.76));
+  mix-blend-mode: screen;
+}
+
+.portrait-core::after {
+  opacity: 0.36;
+  background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.13) 0 1px, transparent 1px 5px);
+  mix-blend-mode: soft-light;
+}
+
+.portrait-image {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: contrast(1.1) saturate(0.8) brightness(0.92);
+  scale: 1.08;
+  transition: opacity 500ms ease, filter 500ms ease, scale 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portrait-media.has-image .portrait-image {
+  opacity: 0.96;
+  scale: 1;
+}
+
+.portrait-fallback {
+  position: relative;
+  z-index: 1;
+  transition: opacity 280ms ease, scale 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portrait-media.has-image .portrait-fallback {
+  opacity: 0;
+  scale: 0.8;
+}
+
+.portrait-core small {
+  position: absolute;
+  z-index: 4;
+  bottom: 26px;
+  left: 50%;
+  width: max-content;
+  margin-bottom: 0;
+  transform: translateX(-50%);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+}
+
+.portrait-scan {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: -40%;
+  width: 22%;
+  height: 100%;
+  transform: skewX(-20deg);
+  background: rgba(201, 252, 103, 0.19);
+  box-shadow: 0 0 26px rgba(201, 252, 103, 0.26);
+  animation: portrait-scan 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.bmw-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
+  align-items: center;
+  gap: 24px;
+  max-width: 760px;
+}
+
+.bmw-detail-copy p {
+  margin: 0;
+}
+
+.bmw-detail-copy p + p {
+  margin-top: 11px;
+}
+
+.award-card {
+  display: block;
+  min-width: 0;
+  color: var(--text);
+}
+
+.award-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(102, 190, 255, 0.5);
+  border-radius: 11px;
+  background: #033c60;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: border-color 220ms ease, transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease;
+}
+
+.award-card:hover .award-media {
+  border-color: var(--accent);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34), 0 0 0 5px rgba(102, 190, 255, 0.07);
+  transform: translateY(-4px) rotate(-1deg);
+}
+
+.award-image {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  object-fit: cover;
+  transition: opacity 350ms ease, scale 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.award-card.has-image .award-image {
+  opacity: 1;
+}
+
+.award-card.has-image .award-fallback {
+  opacity: 0;
+}
+
+.award-card:hover .award-image {
+  scale: 1.035;
+}
+
+.award-fallback {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  padding: 18px;
+  overflow: hidden;
+  color: #f5fbff;
+  background:
+    linear-gradient(116deg, transparent 0 21%, rgba(116, 201, 255, 0.2) 21.4% 21.9%, transparent 22.4% 100%),
+    linear-gradient(50deg, transparent 0 72%, rgba(116, 201, 255, 0.16) 72.4% 72.9%, transparent 73.4% 100%),
+    #033c60;
+  transition: opacity 300ms ease;
+}
+
+.award-fallback::before,
+.award-fallback::after {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(116, 201, 255, 0.32);
+  border-radius: 50%;
+  content: "";
+}
+
+.award-fallback::before { top: -105px; left: -62px; }
+.award-fallback::after { right: -112px; bottom: -96px; }
+
+.award-brand,
+.award-period {
+  position: relative;
+  z-index: 1;
+  color: rgba(245, 251, 255, 0.76);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+.award-fallback strong {
+  position: relative;
+  z-index: 1;
+  margin: 9px 0;
+  font-size: 22px;
+  letter-spacing: -0.06em;
+  line-height: 0.88;
+}
+
+.award-scan {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -30%;
+  width: 18%;
+  height: 100%;
+  transform: skewX(-22deg);
+  background: rgba(201, 252, 103, 0.22);
+  box-shadow: 0 0 22px rgba(201, 252, 103, 0.24);
+  animation: award-scan 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.award-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 9px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.award-caption b {
+  color: var(--accent);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.award-caption i {
+  font-size: 13px;
+  font-style: normal;
+}
+
+@keyframes aura-morph {
+  0%, 100% { border-radius: 42% 58% 64% 36% / 46% 41% 59% 54%; transform: rotate(0deg) scale(1); }
+  50% { border-radius: 58% 42% 35% 65% / 60% 51% 49% 40%; transform: rotate(13deg) scale(1.06); }
+}
+
+@keyframes portrait-scan {
+  0%, 20% { transform: translateX(-180%) skewX(-20deg); opacity: 0; }
+  28%, 48% { opacity: 1; }
+  70%, 100% { transform: translateX(740%) skewX(-20deg); opacity: 0; }
+}
+
+@keyframes award-scan {
+  0%, 22% { transform: translateX(-180%) skewX(-22deg); opacity: 0; }
+  30%, 50% { opacity: 1; }
+  70%, 100% { transform: translateX(820%) skewX(-22deg); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .bmw-detail { grid-template-columns: 1fr; gap: 19px; }
+  .award-fallback strong { font-size: 20px; }
+}
+
+@media (min-width: 1441px) {
+  .portrait-core small { bottom: 39px; font-size: 11px; }
+}
